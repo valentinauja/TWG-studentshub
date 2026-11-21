@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Together We Grow — Student Hub</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap">
+<style>
+:root{--bg:#eef5ff;--card:#fff;--tx:#0b1f3a;--mut:#56677f;--bl:#0a3d91;--ye:#ffc400;--bd:#dfe6f1;--hd:#0a3d91;--ok:#0b8a4b;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#08111f;--card:#12223a;--tx:#eaf0fa;--mut:#9db0ca;--bl:#7fb0ff;--bd:#21344f;--ok:#4fd18b;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#08111f;--card:#12223a;--tx:#eaf0fa;--mut:#9db0ca;--bl:#7fb0ff;--bd:#21344f;--ok:#4fd18b;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 16px/1.55 Manrope,system-ui,-apple-system,"Segoe UI",sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--hd);z-index:10}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--hd);color:#fff;display:flex;align-items:center;gap:14px;padding:10px 16px}
+.brand{font-weight:800;font-size:17px;white-space:nowrap}.brand i{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--ye);margin-right:8px}
+nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+nav a{color:#cfe0ff;text-decoration:none;padding:7px 12px;border-radius:99px;font-weight:600;font-size:14px;white-space:nowrap}
+nav a.on{background:#fff;color:#0a3d91}
+main{max-width:980px;margin:0 auto;padding:20px 16px 60px}
+.view{display:none}.view.on{display:block}
+h1{font-size:clamp(34px,7vw,60px);line-height:1.04;margin:0 0 12px;font-weight:800;letter-spacing:-.02em}
+h2{font-size:24px;margin:30px 0 12px;letter-spacing:-.01em}h3{margin:0 0 6px;font-size:17px}
+p{margin:0 0 10px}.mut{color:var(--mut)}.sm{font-size:13px}
+.hero{background:var(--hd);color:#fff;border-radius:22px;padding:34px 24px;position:relative;overflow:hidden}
+.hero p{color:#d6e4ff;max-width:52ch;font-size:18px}
+.gauge{height:10px;border-radius:9px;background:#ffffff26;margin:22px 0 8px;max-width:420px;overflow:hidden}.gauge b{display:block;height:100%;width:8%;background:var(--ye);border-radius:9px;animation:fill 2.4s ease-out forwards}
+@keyframes fill{to{width:62%}}@media (prefers-reduced-motion:reduce){.gauge b{animation:none;width:62%}}
+.btn{border:0;border-radius:12px;padding:12px 18px;font:800 15px Manrope,system-ui,sans-serif;cursor:pointer;background:var(--ye);color:#1b1500;text-decoration:none;display:inline-block}
+.btn.ghost{background:transparent;color:inherit;border:2px solid currentColor}.btn.sec{background:var(--bl);color:#fff}
+:root[data-theme="dark"] .btn.sec{color:#06101f}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn.sec{color:#06101f}}
+.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,.opt:focus-visible,.chip:focus-visible{outline:3px solid var(--ye);outline-offset:2px}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:18px}
+.opt{display:block;width:100%;text-align:left;font:inherit;color:inherit;background:var(--card);border:2px solid var(--bd);border-radius:16px;padding:16px;cursor:pointer}
+.opt.sel{border-color:var(--ye);box-shadow:0 0 0 3px #ffc40040}.opt b{display:block;font-size:18px;margin-bottom:4px}
+.chip{font:600 14px Manrope,system-ui,sans-serif;color:inherit;background:var(--card);border:1.5px solid var(--bd);border-radius:99px;padding:7px 13px;cursor:pointer}
+.chip.sel{background:var(--bl);color:#fff;border-color:var(--bl)}
+:root[data-theme="dark"] .chip.sel{color:#06101f}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .chip.sel{color:#06101f}}
+label{display:block;font-weight:600;font-size:14px;margin:12px 0 5px}
+input,select,textarea{width:100%;font:inherit;color:var(--tx);background:var(--bg);border:1.5px solid var(--bd);border-radius:10px;padding:10px 12px}
+.bar{height:34px;border-radius:9px;background:var(--bg);border:1px solid var(--bd);position:relative;margin:7px 0;overflow:hidden}
+.bar i{position:absolute;inset:0 auto 0 0;background:#ffc40066;border-right:3px solid var(--ye)}.bar span{position:relative;display:flex;justify-content:space-between;padding:6px 12px;font-size:14px;font-weight:600}
+.tag{display:inline-block;font-size:12px;font-weight:700;background:var(--bg);border:1px solid var(--bd);border-radius:6px;padding:2px 8px;color:var(--mut);margin-bottom:8px}
+.badge{border:1.5px dashed var(--bd);border-radius:14px;padding:14px;text-align:center;color:var(--mut)}.badge.got{border:2px solid var(--ye);color:var(--tx);background:#ffc4000f}
+.kpi{font-size:34px;font-weight:800;line-height:1.1}
+.ck{display:flex;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid var(--bd)}.ck input{width:20px;height:20px}
+.prog{height:8px;border-radius:9px;background:var(--bd);overflow:hidden}.prog i{display:block;height:100%;background:var(--ok)}
+.note{border-left:4px solid var(--ye);background:var(--card);padding:10px 14px;border-radius:0 10px 10px 0;font-size:14px;color:var(--mut)}
+.card{border-radius:24px;padding:22px;box-shadow:0 6px 20px #0a3d9112}
+.hero{background:linear-gradient(135deg,#0a3d91,#1b63d8);border-radius:30px;padding:40px 26px}
+.hero::after{content:"";position:absolute;right:-50px;top:-50px;width:190px;height:190px;border-radius:50%;background:var(--ye);opacity:.28}
+.hero>*{position:relative;z-index:1}
+.opt{border-radius:20px;transition:transform .15s}.opt:hover{transform:translateY(-2px)}
+.btn{border-radius:99px;padding:13px 22px}.chip{padding:8px 15px}
+.bar,.badge{border-radius:14px}h2{margin:34px 0 14px}
+nav a[href="#join"]{background:#ffffff26;color:#fff}
+nav a.on{background:var(--ye);color:#1b1500}
+</style></head><body>
+<header><div class="brand"><i></i>Together We Grow</div>
+<nav id="nav"><a href="#join">Join</a><a href="#home">Home</a><a href="#journey">My journey</a><a href="#events">Upcoming events</a><a href="#news">What’s new</a><a href="#admin">Admin</a></nav><div id="acct" class="sm" style="color:#fff;font-weight:700;white-space:nowrap"></div></header>
+<main>
+<section class="view" id="v-home"></section><section class="view" id="v-journey"></section><section class="view" id="v-news"></section>
+<section class="view" id="v-join"></section><section class="view" id="v-events"></section><section class="view" id="v-admin"></section>
+</main>
+<script>
+const E=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const AREAS=["Refining & Petrochemicals","Engineering","Energy","Maintenance","Automation & Digital","HSE","Laboratory & Quality","Supply Chain & Logistics","Other"];
+const ST=[["apply","I will apply 🚀","I’m set on applying when applications open."],["interested","I’m interested ⚡","I want to explore the program first."],["undecided","I’m undecided 🤔","I’m still figuring out my path."]];
+const CATS=["Together We Grow","Career Stories","Life at Rompetrol","Behind the Scenes","Energy & Innovation","Events","Student Opportunities","Recruitment News"];
+const CK=["Explore the program","Complete my profile","Update my CV","Explore career areas","Watch trainee stories","Prepare for interviews","Follow Rompetrol Careers","Register my intention to apply"];
+const T=["Engineering & Operations","Digital, Data & Innovation","Marketing, Communication & Business","HSE, Laboratory & Quality"];
+const QZ=[["What sounds like your ideal challenge?",["Make a plant run safer and more efficiently","Find patterns in a messy dataset","Tell a story people remember","Prevent a problem before it happens"]],["Pick a workday setting",["In the field, close to the equipment","Laptop and a quiet focus block","A busy room full of ideas","A lab, checking every detail"]],["Which skill would you grow first?",["Technical know-how","Automation and data","Communication","Quality and safety culture"]],["What is your role in a team?",["The one who makes it work","The one who automates it","The one who aligns everyone","The one who double-checks"]]];
+const P=[["Which business area would you like to explore?",["Refining & Petrochemicals","Automation & Digital","HSE","Supply Chain & Logistics"],[34,29,12,18]],["What matters most in a first employer?",["Learning","Mentorship","Salary","Stability"],[40,31,20,9]]];
+const TT=[["Office","Field"],["Project","Shadowing"],["Teamwork","Solo focus"],["Technical","Creative"],["Challenge","Routine"]];
+const POSTS=[["Together We Grow","What a traineeship really looks like","A walkthrough of the first weeks, from onboarding to your first project.","Careers site"],["Career Stories","From trainee to team lead","A former trainee shares how the program shaped their path.","Instagram"],["Life at Rompetrol","A day in the control room","See how a shift starts and who you will work with.","Instagram"],["Events","Open day: meet the teams","Ask engineers and HR anything. Date to be announced.","Events"],["Energy & Innovation","How digital tools change refining","Data and automation in everyday plant operations.","Rompetrol.com"],["Student Opportunities","CV tips before applications open","Three changes that make a student CV stand out.","Careers site"]];
+let S={name:"",uni:"",status:"",ints:[],joined:false,chk:[],votes:{},tt:{},quiz:null,posts:[],qs:[],cat:"All",qi:0,ans:[]};
+try{Object.assign(S,JSON.parse(localStorage.getItem("twg")||"{}"))}catch(e){}
+const save=()=>{try{localStorage.setItem("twg",JSON.stringify(S))}catch(e){}sync()};
+const $=i=>document.getElementById(i);
+function stCards(){return '<div class="grid">'+ST.map(s=>`<button class="opt ${S.status===s[0]?"sel":""}" onclick="setSt('${s[0]}')"><b>${s[1]}</b><span class="mut sm">${s[2]}</span></button>`).join("")+'</div>'}
+function setSt(v){const n=$("f-name");if(n){S.dn=n.value;S.du=$("f-uni").value}S.status=v;save();render()}
+function tgI(i){const k=S.ints.indexOf(AREAS[i]);k<0?S.ints.push(AREAS[i]):S.ints.splice(k,1);save();render()}
+function chips(){return '<div class="row">'+AREAS.map((a,i)=>`<button class="chip ${S.ints.includes(a)?"sel":""}" onclick="tgI(${i})">${a}</button>`).join("")+'</div>'}
+function join(){const n=$("f-name").value.trim();if(!n){$("f-err").textContent="Add your first name to join.";return}if(!S.status){$("f-err").textContent="Choose where you are in your journey.";return}S.name=n;S.uni=$("f-uni").value.trim();S.joined=true;S.dn="";S.du="";save();location.hash="#home";render()}
+function pct(){return Math.round([S.name,S.uni,S.status,S.ints.length,S.quiz].filter(Boolean).length/5*100)}
+function homeOld(){
+const hero=`<div class="hero"><h1>Your future in energy starts here.</h1><p>A student hub for the Together We Grow traineeship by Rompetrol. Explore, take part, and be ready when applications open.</p>
+<div class="gauge"><b></b></div><p class="sm" style="margin:0">Applications open: date to be announced</p><div class="row" style="margin-top:18px"><a class="btn" href="#home" onclick="document.getElementById('join').scrollIntoView({behavior:'smooth'});return false">Join the community</a><a class="btn ghost" href="#news">Explore the program</a></div></div>`;
+const j=S.joined?`<h2>Welcome back, ${E(S.name)}!</h2><div class="card"><p>Your status is shown below. Change it any time.</p>${stCards()}<div class="row" style="margin-top:14px"><a class="btn sec" href="#journey">Open my journey</a><a class="btn ghost" style="color:var(--bl)" href="#quiz">Find your energy</a></div></div>`:
+`<h2 id="join">Where are you in your Together We Grow journey?</h2><div class="card">${stCards()}<label for="f-name">First name</label><input id="f-name" autocomplete="given-name"><label for="f-uni">University (optional)</label><input id="f-uni"><p id="f-err" class="sm" style="color:#d64545;margin:10px 0 0" role="alert"></p><div class="row" style="margin-top:12px"><button class="btn" onclick="join()">Join the community</button></div><p class="note" style="margin-top:14px">Joining the community or choosing “I will apply” is not a job application. Applications open separately.</p></div>`;
+return hero+j+`<h2>What’s happening</h2><div class="grid">${feed().slice(0,3).map(card).join("")}</div>`}
+function card(p){return `<div class="card"><span class="tag">${E(p[0])}</span><h3>${E(p[1])}</h3><p class="mut sm">${E(p[2])}</p><span class="sm mut">Source: ${E(p[3])}</span></div>`}
+function feed(){return LV.posts.slice().sort((a,b)=>(b.t||0)-(a.t||0)).map(p=>[p.c,p.title,p.d,"Rompetrol team"]).concat(POSTS)}
+function news(){const f=feed().filter(p=>S.cat==="All"||p[0]===S.cat);return `<h2 style="margin-top:6px">What’s new at Rompetrol</h2><p class="mut">Sample content for the prototype. Real posts come from the Admin tab, RSS, embeds or approved APIs.</p><div class="row" style="margin-bottom:14px">${["All"].concat(CATS).map(c=>`<button class="chip ${S.cat===c?"sel":""}" onclick="S.cat=this.textContent;save();render()">${c}</button>`).join("")}</div><div class="grid">${f.map(card).join("")||'<p class="mut">No posts in this category yet.</p>'}</div>`}
+function journeyOld(){const bd=[["Community member",S.joined],["Curious mind",Object.keys(S.votes).length>0],["Energy explorer",!!S.quiz],["Career ready",S.chk.length>=6]];
+if(!S.joined)return `<h2 style="margin-top:6px">My journey</h2><div class="card"><p>Join the community to start your journey.</p><a class="btn" href="#join">Join the community</a></div>`;
+return `<h2 style="margin-top:6px">${E(S.name)}’s journey</h2><div class="card"><div class="row" style="justify-content:space-between"><b>Profile completion</b><b>${pct()}%</b></div><div class="prog"><i style="width:${pct()}%"></i></div>
+<label>Your areas of interest</label>${chips()}</div><h2>Your status</h2>${stCards()}
+<h2>Preparation checklist</h2><div class="card">${CK.map((c,i)=>`<label class="ck"><input type="checkbox" ${S.chk.includes(i)?"checked":""} onchange="tgC(${i})">${c}</label>`).join("")}</div>
+<h2>Badges</h2><div class="grid">${bd.map(b=>`<div class="badge ${b[1]?"got":""}"><b>${b[0]}</b><div class="sm">${b[1]?"Unlocked":"Locked"}</div></div>`).join("")}</div>`}
+function tgC(i){const k=S.chk.indexOf(i);k<0?S.chk.push(i):S.chk.splice(k,1);save();render()}
+function vote(p,o){if(S.votes[p]!==undefined)return;S.votes[p]=o;save();render()}
+function tt(i,o){S.tt[i]=o;save();render()}
+function askQ(){const t=$("q-in").value.trim();if(!t)return;S.qs.unshift(t);save();render()}
+function voice(){return `<h2 style="margin-top:6px">Student voice</h2><div class="grid">${P.map((p,i)=>{const done=S.votes[i]!==undefined;const tot=p[2].reduce((a,b)=>a+b,0)+(done?1:0);return `<div class="card"><h3>${p[0]}</h3>${p[1].map((o,k)=>{if(!done)return `<button class="opt" style="margin:6px 0;padding:10px 14px" onclick="vote(${i},${k})">${o}</button>`;const n=p[2][k]+(S.votes[i]===k?1:0),w=Math.round(n/tot*100);return `<div class="bar"><i style="width:${w}%"></i><span><em style="font-style:normal">${o}${S.votes[i]===k?" ✓":""}</em><em style="font-style:normal">${w}%</em></span></div>`}).join("")}${done?'<p class="sm mut">Results include demo baseline votes.</p>':""}</div>`}).join("")}</div>
+<h2>This or that</h2><div class="card">${TT.map((t,i)=>`<div class="row" style="align-items:center;margin:6px 0"><div class="row" style="flex:1">${t.map((o,k)=>`<button class="chip ${S.tt[i]===k?"sel":""}" onclick="tt(${i},${k})">${o}</button>`).join('<span class="mut">or</span>')}</div></div>`).join("")}</div>
+<h2>Ask the community</h2><div class="card"><label for="q-in">Question for the Employer Branding team</label><textarea id="q-in" rows="3"></textarea><div class="row" style="margin-top:10px"><button class="btn" onclick="askQ()">Send question</button></div>${S.qs.length?`<p class="sm mut" style="margin-top:12px">Sent: ${S.qs.length} question(s). The team sees them in Admin.</p>`:""}</div>`}
+function pick(k){S.ans[S.qi]=k;S.qi++;if(S.qi>=QZ.length){const c=[0,0,0,0];S.ans.forEach(a=>c[a]++);S.quiz=c.indexOf(Math.max(...c))}save();render()}
+function quiz(){if(S.quiz!==null&&S.qi>=QZ.length){const t=T[S.quiz];return `<h2 style="margin-top:6px">Find your energy</h2><div class="card"><h3>You may enjoy exploring ${t}.</h3><p class="mut">This is a starting point for curiosity, not a career assessment.</p><div class="row"><button class="btn" onclick="addI()">Add to my interests</button><button class="btn ghost" style="color:var(--bl)" onclick="S.qi=0;S.ans=[];S.quiz=null;save();render()">Retake quiz</button></div></div>`}
+const q=QZ[S.qi];return `<h2 style="margin-top:6px">Find your energy</h2><p class="mut">Question ${S.qi+1} of ${QZ.length}</p><div class="prog" style="margin-bottom:14px"><i style="width:${S.qi/QZ.length*100}%;background:var(--ye)"></i></div><div class="card"><h3>${q[0]}</h3><div style="display:grid;gap:8px;margin-top:10px">${q[1].map((o,k)=>`<button class="opt" onclick="pick(${k})">${o}</button>`).join("")}</div></div>`}
+function addI(){const m=[["Refining & Petrochemicals","Engineering"],["Automation & Digital"],["Other"],["HSE","Laboratory & Quality"]][S.quiz];m.forEach(a=>{if(!S.ints.includes(a))S.ints.push(a)});save();render()}
+function pub(){const t=$("p-t").value.trim();if(!t||!DB)return;DB.collection("posts").add({c:$("p-c").value,title:t,d:$("p-d").value.trim()||"No description.",t:Date.now()}).catch(()=>{})}
+function adminOld(){const b={apply:212,interested:486,undecided:173};if(S.status)b[S.status]++;const tot=b.apply+b.interested+b.undecided;const pv=Object.keys(S.votes).length;
+return `<h2 style="margin-top:6px">Employer Branding control center</h2><p class="note"><b>Prototype view.</b> Numbers are a demo baseline plus your own activity.<br><b>Production needs secure sign-in and role-based access.</b></p>
+<div class="grid" style="margin-top:14px"><div class="card"><div class="kpi">${tot}</div><span class="mut sm">Registered students</span></div><div class="card"><div class="kpi">${S.quiz!==null?1:0}</div><span class="mut sm">Quiz completions (this device)</span></div><div class="card"><div class="kpi">${pv}</div><span class="mut sm">Poll votes (this device)</span></div><div class="card"><div class="kpi">${S.qs.length}</div><span class="mut sm">Questions received</span></div></div>
+<h2>Status distribution</h2><div class="card">${ST.map(s=>{const w=Math.round(b[s[0]]/tot*100);return `<div class="bar"><i style="width:${w}%"></i><span><em style="font-style:normal">${s[1]}</em><em style="font-style:normal">${b[s[0]]} · ${w}%</em></span></div>`}).join("")}</div>
+<h2>Publish news</h2><div class="card"><label for="p-c">Category</label><select id="p-c">${CATS.map(c=>`<option>${c}</option>`).join("")}</select><label for="p-t">Title</label><input id="p-t"><label for="p-d">Short description</label><textarea id="p-d" rows="2"></textarea><div class="row" style="margin-top:12px"><button class="btn" onclick="pub()">Publish</button></div>${S.posts.length?`<p class="sm mut" style="margin-top:10px">Published: ${S.posts.length}. See them in What’s new.</p>`:""}</div>
+${S.qs.length?`<h2>Student questions</h2><div class="card">${S.qs.map(q=>`<p>${E(q)}</p>`).join("")}</div>`:""}
+<div class="row" style="margin-top:18px"><button class="btn ghost" style="color:var(--bl)" onclick="if(confirm('Delete all prototype data on this device?')){S={name:'',uni:'',status:'',ints:[],joined:false,chk:[],votes:{},tt:{},quiz:null,posts:[],qs:[],cat:'All',qi:0,ans:[]};save();location.hash='#home';render()}">Reset prototype data</button></div>`}
+S.reg=S.reg||{};S.evs=S.evs||[];
+const EV=[["Open day: meet the teams","Date to be announced","To be announced","Chat with engineers and HR about life at Rompetrol."],["Campus Q&A with young professionals","Date to be announced","To be announced","Ask trainees what the program is really like."],["Webinar: build a CV that stands out","Date to be announced","Online","Practical tips before applications open."],["Refinery visit","Date to be announced","To be announced","See the places where energy is made."]];
+const AEV=()=>LV.events.slice().sort((a,b)=>(b.t||0)-(a.t||0)).map(e=>[e.n,e.d,e.l,e.x]).concat(EV);
+function joinV(){
+if(S.joined)return `<h2 style="margin-top:6px">You’re part of the crew, ${E(S.name)} 🎉</h2><div class="card"><p>Feeling differently about applying? Change your status any time.</p>${stCards()}<div class="row" style="margin-top:14px"><a class="btn" href="#journey">Go to my journey</a><a class="btn ghost" style="color:var(--bl)" href="#events">See upcoming events</a></div></div>`;
+return `<div class="card"><h1 style="font-size:clamp(28px,6vw,40px)">Hi! Let’s get to know you 👋</h1><p class="mut">It takes less than a minute. First, where are you right now?</p>${stCards()}<label for="f-name">What should we call you?</label><input id="f-name" autocomplete="given-name" placeholder="First name" value="${E(S.dn||"")}"><label for="f-uni">Where do you study? (optional)</label><input id="f-uni" placeholder="University" value="${E(S.du||"")}"><p id="f-err" class="sm" style="color:#d64545;margin:10px 0 0" role="alert"></p><div class="row" style="margin-top:12px"><button class="btn" onclick="join()">Join the community 🚀</button></div><p class="note" style="margin-top:14px">Joining the community or choosing “I will apply” is not a job application. Applications open separately.</p><p class="note" style="margin-top:10px">${AUTH==="out"||AUTH==="loading"?"You’re not signed in, so your answers stay on this device. Sign in to claude.ai to share your registration with the team.":"You’re signed in. Your registration is shared with the Employer Branding team."}</p></div>`}
+function home2(){
+const hero=`<div class="hero"><h1>${S.joined?"Welcome back, "+E(S.name)+"! 👋":"Your future in energy starts here."}</h1><p>${S.joined?"Pick up where you left off, or see what’s new this week.":"Together We Grow is Rompetrol’s traineeship for students. Look around, meet the community and get ready."}</p><div class="gauge"><b></b></div><p class="sm" style="margin:0">Applications open: date to be announced</p><div class="row" style="margin-top:18px">${S.joined?'<a class="btn" href="#journey">My journey</a>':'<a class="btn" href="#join">Join the community</a>'}<a class="btn ghost" href="#events">Upcoming events</a></div></div>`;
+return hero+`<h2>What’s happening</h2><div class="grid">${feed().slice(0,3).map(card).join("")}</div>`+voice()}
+function journey2(){return journeyOld()+quiz()}
+function events(){return `<h2 style="margin-top:6px">Upcoming events 📅</h2><p class="mut">Tap “Remind me” to keep an event on your list. Dates appear as soon as they’re confirmed.</p><div class="grid">${AEV().map((e,i)=>{const on=(S.reg||{})[e[0]];return `<div class="card"><span class="tag">${E(e[2])}</span><h3>${E(e[0])}</h3><p class="mut sm">${E(e[3])}</p><p class="sm"><b>${E(e[1])}</b></p><button class="btn ${on?"sec":""}" data-e="${i}" onclick="rem(this)">${on?"Reminder set ✓":"Remind me"}</button></div>`}).join("")}</div>`}
+function rem(b){const n=AEV()[b.dataset.e][0];S.reg=S.reg||{};S.reg[n]=!S.reg[n];save();render()}
+function admin2(){return adminOld()+`<h2>Add an event</h2><div class="card"><label for="e-n">Event name</label><input id="e-n"><label for="e-d">Date</label><input id="e-d" placeholder="e.g. 12 March, 18:00"><label for="e-l">Location</label><input id="e-l"><label for="e-x">Short description</label><textarea id="e-x" rows="2"></textarea><div class="row" style="margin-top:12px"><button class="btn" onclick="addEv()">Add event</button></div></div>`}
+function addEv(){const n=$("e-n").value.trim();if(!n)return;if(!DB)return;DB.collection("events").add({n,d:$("e-d").value.trim()||"Date to be announced",l:$("e-l").value.trim()||"To be announced",x:$("e-x").value.trim()||"More details soon.",t:Date.now()}).catch(()=>{})}
+let DB=null,US=null,ME=null,ADM=false,AUTH="loading",SUBD=false,tm;
+const LV={posts:[],events:[],students:[],votes:[],questions:[]};
+function sub(c){DB.collection(c).onSnapshot(s=>{LV[c]=s.docs.map(d=>Object.assign({id:d.id},d.data()));if(!/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName))render()},()=>{})}
+async function boot(){try{US=await claude.use("user");DB=await claude.use("db")}catch(e){}
+try{if(US){ME=await US.id();ADM=await US.canEdit()}}catch(e){}
+AUTH=DB&&ME?(ADM?"admin":"student"):"out";
+if(DB&&!SUBD){SUBD=true;sub("posts");sub("events");if(ADM){sub("students");sub("votes");sub("questions")}}
+render();sync()}
+function sync(){if(!DB||!ME||!S.joined)return;clearTimeout(tm);tm=setTimeout(()=>{DB.doc("students/"+ME).set({name:S.name,uni:S.uni,status:S.status,ints:S.ints,chk:S.chk.length,quiz:S.quiz===null?-1:S.quiz,t:Date.now()}).catch(()=>{});DB.doc("votes/"+ME).set({v:S.votes}).catch(()=>{});DB.doc("questions/"+ME).set({q:S.qs}).catch(()=>{})},800)}
+function delDoc(c,id){if(DB&&confirm("Delete this entry?"))DB.doc(c+"/"+id).delete().catch(()=>{})}
+async function exportCsv(){const d=await claude.use("downloads");if(!d)return;const rows=[["Name","University","Status","Interests","Checklist done"]].concat(LV.students.map(s=>[s.name,s.uni,s.status,(s.ints||[]).join("; "),s.chk]));const csv=rows.map(r=>r.map(x=>'"'+String(x==null?"":x).replace(/"/g,'""')+'"').join(",")).join("\n");try{await d.save({filename:"students.csv",data:csv})}catch(e){}}
+function adminV(){
+if(AUTH==="loading")return `<h2 style="margin-top:6px">Admin</h2><p class="mut">Checking your sign-in…</p>`;
+if(AUTH==="out")return `<div class="card"><h1 style="font-size:clamp(28px,6vw,40px)">Admin sign-in 🔐</h1><p class="mut">The control center is for the Rompetrol Employer Branding team. Open this page while signed in to claude.ai with the admin account (the page owner or an invited Editor).</p><div class="row"><button class="btn" onclick="boot()">I’m signed in, check again</button></div><p class="note" style="margin-top:14px">Student data is protected on the server for every read and write, not only hidden on screen.</p></div>`;
+if(AUTH==="student")return `<div class="card"><h1 style="font-size:clamp(28px,6vw,40px)">Admin only 🔒</h1><p class="mut">You’re signed in as a student, so this area stays closed. Your registration, votes and questions are already shared with the team.</p></div>`;
+const st=LV.students,c={apply:0,interested:0,undecided:0};st.forEach(s=>{if(c[s.status]!==undefined)c[s.status]++});const n=st.length||1;
+const pv={};LV.votes.forEach(v=>Object.keys(v.v||{}).forEach(p=>{pv[p]=pv[p]||{};const k=v.v[p];pv[p][k]=(pv[p][k]||0)+1}));
+const qs=[];LV.questions.forEach(x=>(x.q||[]).forEach(q=>qs.push(q)));
+const del=(col,id)=>`<button class="chip" onclick="delDoc('${col}','${E(id)}')">Delete</button>`;
+return `<h2 style="margin-top:6px">Employer Branding control center</h2><p class="note"><b>Signed in as admin.</b> Everything here is live data from registered students.</p>
+<div class="grid" style="margin-top:14px"><div class="card"><div class="kpi">${st.length}</div><span class="mut sm">Registered students</span></div><div class="card"><div class="kpi">${st.filter(s=>s.quiz>=0).length}</div><span class="mut sm">Quiz completions</span></div><div class="card"><div class="kpi">${LV.votes.filter(v=>Object.keys(v.v||{}).length).length}</div><span class="mut sm">Students who voted</span></div><div class="card"><div class="kpi">${qs.length}</div><span class="mut sm">Questions received</span></div></div>
+<h2>Status distribution</h2><div class="card">${ST.map(s=>{const w=Math.round(c[s[0]]/n*100);return `<div class="bar"><i style="width:${w}%"></i><span><em style="font-style:normal">${s[1]}</em><em style="font-style:normal">${c[s[0]]} · ${w}%</em></span></div>`}).join("")}</div>
+<h2>Poll results</h2><div class="grid">${P.map((p,i)=>`<div class="card"><h3>${p[0]}</h3>${p[1].map((o,k)=>`<p class="sm" style="margin:4px 0">${o}: <b>${(pv[i]||{})[k]||0}</b></p>`).join("")}</div>`).join("")}</div>
+<h2>Students</h2><div class="card" style="overflow-x:auto">${st.length?`<table style="width:100%;border-collapse:collapse;font-size:14px"><tr style="text-align:left"><th>Name</th><th>University</th><th>Status</th><th>Interests</th><th></th></tr>${st.slice().sort((a,b)=>(b.t||0)-(a.t||0)).map(s=>`<tr style="border-top:1px solid var(--bd)"><td>${E(s.name||"")}</td><td>${E(s.uni||"")}</td><td>${E((ST.find(x=>x[0]===s.status)||[0,"—"])[1])}</td><td>${E((s.ints||[]).join(", "))}</td><td>${del("students",s.id)}</td></tr>`).join("")}</table>`:'<p class="mut">No registrations yet. They appear here as students join.</p>'}<div class="row" style="margin-top:12px"><button class="btn sec" onclick="exportCsv()">Export CSV</button></div></div>
+<h2>Publish news</h2><div class="card"><label for="p-c">Category</label><select id="p-c">${CATS.map(x=>`<option>${x}</option>`).join("")}</select><label for="p-t">Title</label><input id="p-t"><label for="p-d">Short description</label><textarea id="p-d" rows="2"></textarea><div class="row" style="margin-top:12px"><button class="btn" onclick="pub()">Publish</button></div>${LV.posts.map(p=>`<div class="row" style="justify-content:space-between;align-items:center;border-top:1px solid var(--bd);margin-top:10px;padding-top:8px"><span class="sm">${E(p.title)}</span>${del("posts",p.id)}</div>`).join("")}</div>
+<h2>Add an event</h2><div class="card"><label for="e-n">Event name</label><input id="e-n"><label for="e-d">Date</label><input id="e-d" placeholder="e.g. 12 March, 18:00"><label for="e-l">Location</label><input id="e-l"><label for="e-x">Short description</label><textarea id="e-x" rows="2"></textarea><div class="row" style="margin-top:12px"><button class="btn" onclick="addEv()">Add event</button></div>${LV.events.map(e=>`<div class="row" style="justify-content:space-between;align-items:center;border-top:1px solid var(--bd);margin-top:10px;padding-top:8px"><span class="sm">${E(e.n)}</span>${del("events",e.id)}</div>`).join("")}</div>
+${qs.length?`<h2>Student questions</h2><div class="card">${qs.map(q=>`<p>${E(q)}</p>`).join("")}</div>`:""}`}
+const V={join:joinV,home:home2,journey:journey2,events,news,admin:adminV};
+function render(){$("acct").textContent=AUTH==="admin"?"🔐 Admin":AUTH==="student"?"🎓 Student":AUTH==="out"?"Not signed in":"";const h=(location.hash||"#home").slice(1);const k=V[h]?h:"home";const y=window.scrollY;
+for(const n in V){$("v-"+n).classList.toggle("on",n===k);if(n===k)$("v-"+n).innerHTML=V[n]()}
+document.querySelectorAll("#nav a").forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+k));window.scrollTo(0,y)}
+addEventListener("hashchange",()=>{render();window.scrollTo(0,0)});render();boot();
+</script></body></html>
